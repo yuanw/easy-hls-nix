@@ -8,15 +8,11 @@
     defaultPackage.x86_64-linux =
       let pkgs = import nixpkgs { system = "x86_64-linux"; };
       in pkgs.callPackage ./default.nix { };
-    devShell.x86_64-linux = import ./shell.nix {
-      pkgs = import nixpkgs { system = "x86_64-linux"; };
-    };
+    overlay.x86_64-linux = import ./overlay.nix;
 
     defaultPackage.x86_64-darwin =
       let pkgs = import nixpkgs { system = "x86_64-darwin"; };
       in pkgs.callPackage ./default.nix { };
-    devShell.x86_64-darwin = import ./shell.nix {
-      pkgs = import nixpkgs { system = "x86_64-darwin"; };
-    };
+    overlay.x86_64-darwin = import ./overlay.nix;
   };
 }
